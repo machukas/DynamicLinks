@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2E3D61B21F9A2AF600312650 /* DynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3D61A81F9A2AF600312650 /* DynamicLinks.framework */; };
-		2E3D61B71F9A2AF600312650 /* DynamicLinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */; };
 		2E3D61B91F9A2AF600312650 /* DynamicLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E3D61AB1F9A2AF600312650 /* DynamicLinks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E3D61C41F9DD09500312650 /* DynamicLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D61C21F9DD09500312650 /* DynamicLink.swift */; };
+		2E3D61C61F9E087700312650 /* DynamicLinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		2E3D61B11F9A2AF600312650 /* DynamicLinksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicLinksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLinksTests.swift; sourceTree = "<group>"; };
 		2E3D61B81F9A2AF600312650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E3D61C21F9DD09500312650 /* DynamicLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		2E3D61AA1F9A2AF600312650 /* DynamicLinks */ = {
 			isa = PBXGroup;
 			children = (
+				2E3D61C21F9DD09500312650 /* DynamicLink.swift */,
 				2E3D61AB1F9A2AF600312650 /* DynamicLinks.h */,
 				2E3D61AC1F9A2AF600312650 /* Info.plist */,
 			);
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					2E3D61A71F9A2AF600312650 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					2E3D61B01F9A2AF600312650 = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3D61C41F9DD09500312650 /* DynamicLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E3D61B71F9A2AF600312650 /* DynamicLinksTests.swift in Sources */,
+				2E3D61C61F9E087700312650 /* DynamicLinksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +339,7 @@
 		2E3D61BD1F9A2AF600312650 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -346,6 +352,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.machukas.DynamicLinks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -354,6 +361,7 @@
 		2E3D61BE1F9A2AF600312650 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -374,6 +382,7 @@
 		2E3D61C01F9A2AF600312650 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DynamicLinksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -387,6 +396,7 @@
 		2E3D61C11F9A2AF600312650 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DynamicLinksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
