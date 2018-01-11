@@ -24,7 +24,7 @@ public struct DynamicLink {
 		var localizedDescription: String {
 			switch self {
 			case .notConfigured:
-				return "La configuración"
+				return "Configuration missing"
 			case .baseURLNotValid:
 				return "The base URL for the link is not valid"
 			case .missingConfigurationParameter(let parameterName):
@@ -94,7 +94,7 @@ public struct DynamicLink {
 	private let metaInformation: MetaInformation
 	private let universalLink: URL
 	
-	init(link: URL, info: MetaInformation) throws {
+	public init(link: URL, info: MetaInformation) throws {
 		self.universalLink = link
 		self.metaInformation = info
 		
