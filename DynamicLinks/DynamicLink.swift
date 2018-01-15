@@ -174,6 +174,37 @@ public struct DynamicLink {
 		return linkComponents.url
 	}
 	
+	public typealias GenerateShorLinkType = (url: URL?, error: DynamicLinkError?)
+	/// Síncrono
+	///
+	/// - Returns: GenerateShorLinkType
+	/// - Throws: DynamicLinkError
+	public func generateShortLink() throws -> GenerateShorLinkType {
+		guard Configuration.apiKey != "" else { throw DynamicLinkError.missingConfigurationParameter("apiKey") }
+		
+		let semaphore = DispatchSemaphore(value: 0)
+		var response: GenerateShorLinkType = (nil,nil)
+		
+		let session = URLSession.shared
+		let dataTask = session.dataTask(with: self.shortLinkRequest(), completionHandler: { (data, _, error) -> Void in
+			if let error = error as NSError? {
+				response.error = DynamicLinkError.firebaseRequestError(error)
+			} else if let data = data {
+				if let responseJson = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any],
+					let shortLink = responseJson?["shortLink"] as? String {
+					
+					response.url = URL(string: shortLink)
+				}
+			}
+			semaphore.signal()
+		})
+		
+		dataTask.resume()
+		semaphore.wait()
+		
+		return response
+	}
+	
 	public typealias GenerateShorLinkBlock = (URL?, DynamicLinkError?)->Void
 	public func generateShortLink(completion: @escaping GenerateShorLinkBlock) throws {
 		
