@@ -21,11 +21,11 @@ public struct UniversalLink: CustomStringConvertible {
 	
 	public struct Configuration {
 		/// Esquema de la url: developer.apple.com
-		static var urlScheme: String = "" //brain.aratech.org"
+		public static var urlScheme: String = "" //brain.aratech.org"
 		/// URL base del dominio, sin '/' al final: https://developer.apple.com
-		static var baseURL: String = ""  //https://brain.aratech.org/"
-		static var backURLAndroid = ""    //https://play.google.com/store/apps/details?id=com.comuto&hl=es"
-		static var backURLiOS = ""        //https://itunes.apple.com/es/app/blablacar-compartir-coche/id341329033?mt=8"
+		public static var baseURL: String = ""  //https://brain.aratech.org/"
+		public static var backURLAndroid = ""    //https://play.google.com/store/apps/details?id=com.comuto&hl=es"
+		public static var backURLiOS = ""        //https://itunes.apple.com/es/app/blablacar-compartir-coche/id341329033?mt=8"
 	}
 	
 //    init?(_ link: URLComponents) {

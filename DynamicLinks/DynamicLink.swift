@@ -39,29 +39,29 @@ public struct DynamicLink {
 	public struct Configuration {
 		
 		/// Clave para la API web de Firebase, necesaría para crear el enlace corto
-		static var apiKey = ""
+		public static var apiKey = ""
 		
 		/// Código de la app (panel de control Firebase)
-		static var appCode = ""
+		public static var appCode = ""
 		/// .app.goo.gl
 		private (set) static var appCodeHost = ".app.goo.gl"
 		
 		/// Nombre del paquete iOS
-		static var bundleiOS = ""
+		public static var bundleiOS = ""
 		
 		/// Nombre del paquete Android
-		static var packageNameAndroid = ""
+		public static var packageNameAndroid = ""
 		
-		static var minimumiOSVersion = -1 // 9
+		public static var minimumiOSVersion = -1 // 9
 		
 		/// Enlace a la Google Play Store por si no se tiene la aplicación instalada
-		static var backURLAndroid = ""
+		public static var backURLAndroid = ""
 		
 		/// Enlace a la AppStore por si no se tiene la aplicación instalada
-		static var backURLiOS = ""
+		public static var backURLiOS = ""
 		
 		/// Flag para que en lugar de cargar el DynamicLink, se genere un gráfico de flujo para depurar el comportamiento
-		static var debug = false
+		public static var debug = false
 		
 		/// Si los datos obligatorios están asignados.
 		static func checkMandatoryData() throws {
