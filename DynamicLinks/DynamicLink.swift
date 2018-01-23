@@ -77,7 +77,7 @@ public struct DynamicLink {
 		let description: String?
 		let imageURL: URL?
 		
-		init(title: String, description: String? = nil, imageURL: String? = nil) {
+		public init(title: String, description: String? = nil, imageURL: String? = nil) {
 			self.title = title
 			self.description = description
 			
