@@ -39,7 +39,7 @@ public struct UniversalLink: CustomStringConvertible {
 	
     public init(path: String) {
         self.path = path
-		if !path.hasPrefix("/") { self.path.append("/") }
+		if !path.hasPrefix("/") { self.path = "/"+self.path }
 		
 		var urlComponents = URLComponents()
 		urlComponents.host = type(of: self).Configuration.baseURL
