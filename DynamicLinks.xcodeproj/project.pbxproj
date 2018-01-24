@@ -32,6 +32,7 @@
 		2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLinksTests.swift; sourceTree = "<group>"; };
 		2E3D61B81F9A2AF600312650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3D61C21F9DD09500312650 /* DynamicLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicLink.swift; sourceTree = "<group>"; };
+		2E46594C201866B400A14B3B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		2E4B4B6A2007699B006A0163 /* UniversalLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +80,7 @@
 				2E3D61C21F9DD09500312650 /* DynamicLink.swift */,
 				2E3D61AB1F9A2AF600312650 /* DynamicLinks.h */,
 				2E3D61AC1F9A2AF600312650 /* Info.plist */,
+				2E46594C201866B400A14B3B /* .swiftlint.yml */,
 			);
 			path = DynamicLinks;
 			sourceTree = "<group>";

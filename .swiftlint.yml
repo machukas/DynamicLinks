@@ -1,0 +1,10 @@
+disabled_rules: # rule identifiers to exclude from running
+- trailing_whitespace
+- nesting
+- unused_optional_binding
+
+force_cast: warning
+force_try: error
+
+#excluded: # paths to ignore during linting. Takes precedence over `included`.
+#- DynamicLinksTests
