@@ -115,12 +115,16 @@ public struct DynamicLink {
 	}
 	
 	private var androidBackURL: URLQueryItem? {
+		guard Configuration.backURLAndroid != "" else { return nil }
+		
 		let afl = URLQueryItem(name: "afl",
 		                       value: Configuration.backURLAndroid)
 		return afl
 	}
 	
 	private var iOSBackURL: URLQueryItem? {
+		guard Configuration.backURLiOS != "" else { return nil }
+		
 		let ifl = URLQueryItem(name: "ifl",
 		                       value: Configuration.backURLiOS)
 		return ifl
@@ -143,15 +147,19 @@ public struct DynamicLink {
 		return imv
 	}
 	
-	private var previewImage: URLQueryItem {
+	private var previewImage: URLQueryItem? {
+		guard let imageURL = self.metaInformation.imageURL else { return nil }
+		
 		let si = URLQueryItem(name: "si",
-		                      value: self.metaInformation.imageURL?.absoluteString)
+		                      value: imageURL.absoluteString)
 		return si
 	}
 	
-	private var previewDescription: URLQueryItem {
+	private var previewDescription: URLQueryItem? {
+		guard let description = self.metaInformation.description else { return nil }
+		
 		let sd = URLQueryItem(name: "sd",
-		                      value: self.metaInformation.description)
+		                      value: description)
 		return sd
 	}
 	

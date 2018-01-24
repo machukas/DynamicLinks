@@ -20,29 +20,17 @@ public struct UniversalLink: CustomStringConvertible {
     }
 	
 	public struct Configuration {
-		/// Esquema de la url: developer.apple.com
-		public static var urlScheme: String = "" //brain.aratech.org"
 		/// URL base del dominio, sin '/' al final: https://developer.apple.com
 		public static var baseURL: String = ""  //https://brain.aratech.org/"
 		public static var backURLAndroid = ""    //https://play.google.com/store/apps/details?id=com.comuto&hl=es"
 		public static var backURLiOS = ""        //https://itunes.apple.com/es/app/blablacar-compartir-coche/id341329033?mt=8"
 	}
 	
-//    init?(_ link: URLComponents) {
-//
-//        self.link = link
-//
-//        let linkComponents = link.path.components(separatedBy: "/")
-//
-//        // TODO: Separar baseURL para obtener path del enalce
-//    }
-	
     public init(path: String) {
         self.path = path
-		if !path.hasPrefix("/") { self.path.append("/") }
+		if !path.hasPrefix("/") { self.path = "/"+self.path }
 		
-		var urlComponents = URLComponents()
-		urlComponents.host = type(of: self).Configuration.baseURL
+		var urlComponents = URLComponents(string: type(of: self).Configuration.baseURL)!
 		urlComponents.path = self.path
 		
 		self.link = urlComponents
