@@ -115,4 +115,5 @@ playground.xcworkspace
 # End of https://www.gitignore.io/api/swift,xcode,objective-c
 
 ## Custom ##
-DynamicLinksTests
+UniversalLinkConfiguration.plist
+DynamicLinkConfiguration.plist

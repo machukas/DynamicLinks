@@ -11,6 +11,8 @@
 		2E3D61B91F9A2AF600312650 /* DynamicLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E3D61AB1F9A2AF600312650 /* DynamicLinks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2E3D61C41F9DD09500312650 /* DynamicLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D61C21F9DD09500312650 /* DynamicLink.swift */; };
 		2E3D61C61F9E087700312650 /* DynamicLinksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */; };
+		2E46594F20186F3200A14B3B /* DynamicLinkConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E46594E20186F3200A14B3B /* DynamicLinkConfiguration.plist */; };
+		2E465951201872F300A14B3B /* UniversalLinkConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E465950201872F300A14B3B /* UniversalLinkConfiguration.plist */; };
 		2E4B4B6B2007699B006A0163 /* UniversalLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B4B6A2007699B006A0163 /* UniversalLink.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		2E3D61B81F9A2AF600312650 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3D61C21F9DD09500312650 /* DynamicLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicLink.swift; sourceTree = "<group>"; };
 		2E46594C201866B400A14B3B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		2E46594E20186F3200A14B3B /* DynamicLinkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DynamicLinkConfiguration.plist; sourceTree = "<group>"; };
+		2E465950201872F300A14B3B /* UniversalLinkConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UniversalLinkConfiguration.plist; sourceTree = "<group>"; };
 		2E4B4B6A2007699B006A0163 /* UniversalLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				2E3D61B61F9A2AF600312650 /* DynamicLinksTests.swift */,
+				2E46594E20186F3200A14B3B /* DynamicLinkConfiguration.plist */,
+				2E465950201872F300A14B3B /* UniversalLinkConfiguration.plist */,
 				2E3D61B81F9A2AF600312650 /* Info.plist */,
 			);
 			path = DynamicLinksTests;
@@ -196,6 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E465951201872F300A14B3B /* UniversalLinkConfiguration.plist in Resources */,
+				2E46594F20186F3200A14B3B /* DynamicLinkConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

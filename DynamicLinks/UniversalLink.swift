@@ -2,46 +2,63 @@
 //  UniversalLink.swift
 //  ChassApp
 //
-//  Created by Aratech iOS on 4/10/17.
-//  Copyright © 2017 ChassApp. All rights reserved.
+//  Created by Nicolas Landa on 4/10/17.
+//  Copyright © 2017 Nicolas Landa. All rights reserved.
 //
 
 import Foundation
 
-// MARK:- Universal Links
-
 public struct UniversalLink: CustomStringConvertible {
-    
-    private var path: String
+	
+	public static var configuration: Configuration = Configuration()
+
+	public typealias LinkID = String
+	
+	public struct LinkType: RawRepresentable {
+		public init?(rawValue: String) {
+			self.rawValue = rawValue
+		}
+		
+		public init(key: String) {
+			self.init(rawValue: key)!
+		}
+		
+		public var rawValue: String
+		
+		public typealias RawValue = String
+	}
+	
+	private var type: LinkType
+	private var id: LinkID
+	
     private var link: URLComponents
     
     public var url: URL {
         return link.url!
     }
 	
-	public struct Configuration {
+	public struct Configuration: Codable {
 		/// URL base del dominio, sin '/' al final: https://developer.apple.com
-		public static var baseURL: String = ""  //https://brain.aratech.org/"
-		public static var backURLAndroid = ""    //https://play.google.com/store/apps/details?id=com.comuto&hl=es"
-		public static var backURLiOS = ""        //https://itunes.apple.com/es/app/blablacar-compartir-coche/id341329033?mt=8"
+		public var baseURL: String = ""
+		/// URL de la aplicación en la PlayStore
+		public var backURLAndroid: String = ""
+		/// URL de la aplicación en la AppStore
+		public var backURLiOS: String = ""
 	}
 	
-    public init(path: String) {
-        self.path = path
-		if !path.hasPrefix("/") { self.path = "/"+self.path }
+	public init(type: LinkType, id: LinkID) {
+		self.type = type
+		self.id = id
 		
-		var urlComponents = URLComponents(string: type(of: self).Configuration.baseURL)!
-		urlComponents.path = self.path
+		var urlComponents = URLComponents(string: UniversalLink.configuration.baseURL)!
+		urlComponents.path = "/"+type.rawValue+"/"+id
 		
 		self.link = urlComponents
-    }
+	}
     
     // MARK: CustomStringConvertible
     
 	public var description: String {
-		return "Universal Link with host: \(self.link.host ?? "error") and path: \(self.link.path)"
+		return "Universal Link with host: \(self.link.host ?? "error") type: \(self.link.path)"
     }
 }
-
-    
-
