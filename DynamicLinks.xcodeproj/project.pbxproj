@@ -140,6 +140,7 @@
 				2E3D61AD1F9A2AF600312650 /* Sources */,
 				2E3D61AE1F9A2AF600312650 /* Frameworks */,
 				2E3D61AF1F9A2AF600312650 /* Resources */,
+				2E5EC8DE2018B6FC00237C88 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -221,7 +222,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which /usr/local/bin/swiftlint >/dev/null; then\n/usr/local/bin/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		2E5EC8DE2018B6FC00237C88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $UNIVERSALLINKCONFIGFILE";
 		};
 /* End PBXShellScriptBuildPhase section */
 
