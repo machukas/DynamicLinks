@@ -8,12 +8,12 @@
 
 /**
 
-	Permite generar DynamicLinks,
-	ver parametros disponibles en
-	[Documentación de Firebase](https://firebase.google.com/docs/dynamic-links/create-manually?hl=es-419)
+Permite generar DynamicLinks,
+ver parametros disponibles en
+[Documentación de Firebase](https://firebase.google.com/docs/dynamic-links/create-manually?hl=es-419)
 
-	Se debe inicializar primero la configuración global de los enlaces en la app,
-	estructura `Configuration` estática de la clase.
+Se debe inicializar primero la configuración global de los enlaces en la app,
+estructura `Configuration` estática de la clase.
 
 */
 public struct DynamicLink {
@@ -55,7 +55,7 @@ public struct DynamicLink {
 		/// Nombre del paquete Android
 		public var packageNameAndroid = ""
 		
-		public var minimumiOSVersion = -1 // 9
+		public var minimumiOSVersion = "-1" // 9
 		
 		/// Enlace a la Google Play Store por si no se tiene la aplicación instalada
 		public var backURLAndroid = ""
@@ -64,7 +64,7 @@ public struct DynamicLink {
 		public var backURLiOS = ""
 		
 		/// Flag para que en lugar de cargar el DynamicLink, se genere un gráfico de flujo para depurar el comportamiento
-		public var debug = false
+		private var debug = "false"
 		
 		/// Si los datos obligatorios están asignados.
 		static func checkMandatoryData() throws {
@@ -74,7 +74,7 @@ public struct DynamicLink {
 				throw DynamicLinkError.missingConfigurationParameter("bundleiOS") }
 			if DynamicLink.configuration.packageNameAndroid == "" {
 				throw DynamicLinkError.missingConfigurationParameter("packageNameAndroid") }
-			if DynamicLink.configuration.minimumiOSVersion == -1 {
+			if DynamicLink.configuration.minimumiOSVersion == "-1" {
 				throw DynamicLinkError.missingConfigurationParameter("minimumiOSVersion") }
 		}
 	}
@@ -124,7 +124,7 @@ public struct DynamicLink {
 	/// Enlace destino del DynamicLink
 	private var link: URLQueryItem {
 		let link = URLQueryItem(name: "link",
-		                        value: self.universalLink.absoluteString)
+								value: self.universalLink.absoluteString)
 		return link
 	}
 	
@@ -132,7 +132,7 @@ public struct DynamicLink {
 		guard self.configuration.backURLAndroid != "" else { return nil }
 		
 		let afl = URLQueryItem(name: "afl",
-		                       value: self.configuration.backURLAndroid)
+							   value: self.configuration.backURLAndroid)
 		return afl
 	}
 	
@@ -140,19 +140,19 @@ public struct DynamicLink {
 		guard self.configuration.backURLiOS != "" else { return nil }
 		
 		let ifl = URLQueryItem(name: "ifl",
-		                       value: self.configuration.backURLiOS)
+							   value: self.configuration.backURLiOS)
 		return ifl
 	}
 	
 	private var androidPackageName: URLQueryItem {
 		let apn = URLQueryItem(name: "apn",
-		                       value: self.configuration.packageNameAndroid)
+							   value: self.configuration.packageNameAndroid)
 		return apn
 	}
 	
 	private var iosPackageName: URLQueryItem {
 		let ibi = URLQueryItem(name: "ibi",
-		                       value: self.configuration.bundleiOS)
+							   value: self.configuration.bundleiOS)
 		return ibi
 	}
 	
@@ -165,7 +165,7 @@ public struct DynamicLink {
 		guard let imageURL = self.metaInformation.imageURL else { return nil }
 		
 		let si = URLQueryItem(name: "si",
-		                      value: imageURL.absoluteString)
+							  value: imageURL.absoluteString)
 		return si
 	}
 	
@@ -173,7 +173,7 @@ public struct DynamicLink {
 		guard let description = self.metaInformation.description else { return nil }
 		
 		let sd = URLQueryItem(name: "sd",
-		                      value: description)
+							  value: description)
 		return sd
 	}
 	
@@ -277,8 +277,8 @@ public struct DynamicLink {
 		let postData = try! JSONSerialization.data(withJSONObject: parameters, options: [])
 		
 		var request = URLRequest(url: URL(string: "\(shortLinkApiURL)?key=\(self.configuration.apiKey)")!,
-		                                  cachePolicy: .useProtocolCachePolicy,
-		                                  timeoutInterval: 10.0)
+								 cachePolicy: .useProtocolCachePolicy,
+								 timeoutInterval: 10.0)
 		request.httpMethod = "POST"
 		request.allHTTPHeaderFields = headers
 		request.httpBody = postData as Data
