@@ -55,7 +55,7 @@ public struct DynamicLink {
 		/// Nombre del paquete Android
 		public var packageNameAndroid = ""
 		
-		public var minimumiOSVersion = "-1" // 9
+		public var minimumiOSVersion = ""
 		
 		/// Enlace a la Google Play Store por si no se tiene la aplicación instalada
 		public var backURLAndroid = ""
@@ -156,7 +156,9 @@ public struct DynamicLink {
 		return ibi
 	}
 	
-	private var minimumiOSVersion: URLQueryItem {
+	private var minimumiOSVersion: URLQueryItem? {
+		guard self.configuration.minimumiOSVersion != "" else { return nil }
+		
 		let imv = URLQueryItem(name: "imv", value: "\(self.configuration.minimumiOSVersion)")
 		return imv
 	}
