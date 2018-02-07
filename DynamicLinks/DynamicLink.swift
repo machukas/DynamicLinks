@@ -47,7 +47,7 @@ public struct DynamicLink {
 		/// Código de la app (panel de control Firebase)
 		public var appCode = ""
 		/// .app.goo.gl
-		private (set) var appCodeHost = ".app.goo.gl"
+		private (set) public var appCodeHost = ".app.goo.gl"
 		
 		/// Nombre del paquete iOS
 		public var bundleiOS = ""
