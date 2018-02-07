@@ -270,7 +270,7 @@ public struct DynamicLink {
 		
 		let parameters = [
 			"longDynamicLink": self.generateLink()?.absoluteString ?? "",
-			"suffix": ["option": "SHORT"]
+			"suffix": ["option": "UNGUESSABLE"]
 			] as [String: Any]
 		
 		//swiftlint:disable:next force_try
